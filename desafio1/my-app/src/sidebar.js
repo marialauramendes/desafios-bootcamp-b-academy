@@ -1,8 +1,10 @@
+import { H2 } from './headings'
+
 function Sidebar (){
   return(
     <>
     <aside>
-      <h2>Sidebar</h2>
+      <H2 children="Sidebar"/>
     </aside>
     </>
   )

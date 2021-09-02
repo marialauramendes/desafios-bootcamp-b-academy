@@ -1,20 +1,11 @@
-import { Header } from './header'
-import { Menu } from './menu'
-import { Sidebar } from './sidebar'
-import { Content } from './content'
-import { Footer } from './footer'
+import { Container } from './container'
+
 
 
 function App () { 
   return (
     <>
-    <Header />
-    <Menu />
-    <main>
-    <Sidebar />
-    <Content />
-    </main>
-    <Footer />
+    <Container/>
     </>
   )
 }

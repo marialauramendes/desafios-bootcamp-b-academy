@@ -1,8 +1,10 @@
+import { H1 } from "./headings"
+
 function Header () {
   return (
     <>
     <header>
-      <h1>App</h1>
+      <H1 children="App"/>
     </header>
     </>
   )
