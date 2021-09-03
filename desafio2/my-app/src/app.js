@@ -30,8 +30,9 @@ const articles = [
 ]
 
 function App () { 
-  const [title] = useState(articles[1].title);
-  const [content]= useState(articles[1].content);
+  const [title] = useState(articles[0].title);
+  const [content]= useState(articles[0].content);
+
 
   return (
     <>

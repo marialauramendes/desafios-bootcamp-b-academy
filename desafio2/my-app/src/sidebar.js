@@ -1,7 +1,7 @@
-
 import {  H2 } from './headings'
 
 function Sidebar ({articles}){
+  
   return(
     <>
     <aside>
@@ -9,7 +9,7 @@ function Sidebar ({articles}){
     <ul>
       {articles.map((item) => (
         <li key={item.id} >
-          <a href={item.id}>{item.title}</a>
+          <a href={item.id} >{item.title}</a>
         </li>
       ))}
     </ul>
