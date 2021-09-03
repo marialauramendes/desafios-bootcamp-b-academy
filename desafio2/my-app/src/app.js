@@ -30,16 +30,15 @@ const articles = [
 ]
 
 function App () { 
-  const [title] = useState(articles[0].title);
-  const [content]= useState(articles[0].content);
-
+  const [title, setTitle] = useState(articles[0].title);
+  const [content, setContent]= useState(articles[0].content);
 
   return (
     <>
    <Container>
       <Header />
       <Menu />
-      <Sidebar articles={articles}></Sidebar>
+      <Sidebar articles={articles} setTitle={setTitle} setContent={setContent}></Sidebar>
       <Content>
         <H2>{title}</H2>
         {content}
