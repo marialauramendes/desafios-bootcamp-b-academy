@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Header } from './header'
 import { Menu } from './menu'
 import { Sidebar } from './sidebar'
+import { Content } from './content'
 import { Footer } from './footer'
 import { Container } from './container'
 import {  H2 } from './headings'
@@ -18,33 +20,29 @@ const articles = [
   {
     id: 2,
     title: 'Receita de Miojo',
-    content: <Content2 />
+    content: <Content2 />,
   },
   {
     id: 3,
     title: 'Receita de Maria Mole',
-    content: <Content3 />
+    content: <Content3 />,
   },
 ]
 
 function App () { 
+  const [title] = useState(articles[1].title);
+  const [content]= useState(articles[1].content);
 
   return (
     <>
    <Container>
       <Header />
       <Menu />
-      <Sidebar>
-        <H2>Sidebar</H2>
-        <ul>
-          {articles.map((item) => (
-            <li key={item.id}>
-              <a href="/">{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      </Sidebar>
-      <Content1 />
+      <Sidebar articles={articles}></Sidebar>
+      <Content>
+        <H2>{title}</H2>
+        {content}
+      </Content>
       <Footer />
     </Container>
     </>
