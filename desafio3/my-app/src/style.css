@@ -1,0 +1,71 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  padding: 30px 15px;
+  font-family: Georgia;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  color: #0f3e24;
+  text-transform: uppercase;
+}
+form {
+  width: 30%;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 5px;
+}
+
+input[type="color"] {
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  height: 50px;
+}
+
+button {
+  height: 40px;
+  width: 200px;
+  font-weight: 300;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  color: #fff;
+  background-color: #0f3e24;
+  border-radius: 5px;
+}
+
+table {
+  width: 65%;
+  border: 1px solid #000;
+}
+
+thead tr {
+  border: 1px solid #000;
+}
+
+th {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px;
+}
