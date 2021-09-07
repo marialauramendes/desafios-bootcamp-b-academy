@@ -1,12 +1,41 @@
-function Form ({handleSubmit}) {
+const url = 'http://localhost:3333/cars'
+
+function Form ({setCars}) {
+  async function handleSubmit(event) {
+    event.preventDefault();
   
+    const car = {
+      image: event.target.elements.image.value,
+      brandModel: event.target.elements['brand-model'].value,
+      year: event.target.elements.year.value,
+      plate: event.target.elements.plate.value,
+      color: event.target.elements.color.value,
+    }
+
+    const result = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(car)
+    }).then(response => response.json)
+
+    if (result.error) {
+      console.log('deu erro na hora de cadastrar', result.message)
+      return
+    }
+    setCars((prevData) => {
+      return [...prevData, car]
+    })
+
+  }
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} >
       <div className="field-wrapper">
         <label htmlFor="image">Imagem</label>
-        <input type="url" name="image"/>
+        <input type="url" name="image" autoFocus/>
       </div>
 
       <div className="field-wrapper">
@@ -34,4 +63,4 @@ function Form ({handleSubmit}) {
   )
 }
 
-export { Form }
+export { url, Form }
