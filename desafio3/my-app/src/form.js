@@ -1,7 +1,9 @@
-function Form () {
+function Form ({handleSubmit}) {
+  
+
   return (
     <>
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="field-wrapper">
         <label htmlFor="image">Imagem</label>
         <input type="url" name="image"/>
