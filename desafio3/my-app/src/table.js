@@ -1,26 +1,21 @@
 import { url } from "./form"
 
+
 function Table ({car, cars, setCars}) {
 
   function handleDelete (event) {
     const plate = event.target.id
-    console.log(plate)
-    
-    const result = fetch(url, {
+
+    fetch(url, {
       method: 'DELETE', 
       headers: {
         'content-type': 'application/json'
       },
       body: JSON.stringify({plate})
-    })
+    }).then(response => response.json())
+    .then(responseJson => console.log(responseJson))
 
-    if(result.error){
-      console.log('erro ao deletar', result.message)
-      return
-    }
-    setCars((prevData) => {
-      return [...prevData, car]
-    })
+    setCars((prevState) => prevState.filter((car) => car.plate !== plate));
   }
 
   return (
@@ -36,7 +31,8 @@ function Table ({car, cars, setCars}) {
       </thead>
 
       <tbody>
-        {cars.map((car) => (
+        { cars.length > 0 
+        ? cars.map((car) => (
           <tr key={car.plate}>
             <td><img src={car.image} alt={car.brandModel}/></td>
             <td>{car.brandModel}</td>
@@ -45,7 +41,10 @@ function Table ({car, cars, setCars}) {
             <td><div className="color-box" style={{backgroundColor:car.color}}/></td>
             <td><button id={car.plate} onClick={handleDelete}>Excluir</button></td>
           </tr>
-        ))}
+          )
+        ) 
+        : <tr><td colSpan="5">Nenhum carro cadastrado</td></tr>
+        }
       </tbody>
 
     </table>

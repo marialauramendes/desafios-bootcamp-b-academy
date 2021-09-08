@@ -1,6 +1,8 @@
 const url = 'http://localhost:3333/cars'
 
 function Form ({setCars}) {
+
+
   async function handleSubmit(event) {
     event.preventDefault();
   
@@ -12,21 +14,22 @@ function Form ({setCars}) {
       color: event.target.elements.color.value,
     }
 
-    const result = await fetch(url, {
+    await fetch(url, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
       body: JSON.stringify(car)
-    }).then(response => response.json)
+    }).then(response => response.json())
+    .then(responseJson => console.log(responseJson))
 
-    if (result.error) {
-      console.log('deu erro na hora de cadastrar', result.message)
-      return
-    }
+
     setCars((prevData) => {
       return [...prevData, car]
     })
+
+    event.target.reset()
+   
 
   }
 
@@ -35,7 +38,7 @@ function Form ({setCars}) {
     <form onSubmit={handleSubmit} >
       <div className="field-wrapper">
         <label htmlFor="image">Imagem</label>
-        <input type="url" name="image" autoFocus/>
+        <input type="url" name="image"  autoFocus/>
       </div>
 
       <div className="field-wrapper">
@@ -54,7 +57,7 @@ function Form ({setCars}) {
       </div>
       <div className="field-wrapper">
         <label htmlFor="color">Cor</label>
-        <input type="color" name="color"/>
+        <input type="text" name="color"/>
       </div>
 
       <button type="submit">Cadastrar Carro</button>

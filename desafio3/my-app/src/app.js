@@ -6,22 +6,18 @@ import { Table } from './table'
 function App () {
   const [cars, setCars] = useState([]);
 
-  useEffect(() => {
-   function getCars() {
-      const result = fetch(url)
+  useEffect(() => {  
+    function getCars() {
+    
+      fetch(url)
       .then(response => response.json())
-      .then(responseJson => setCars(responseJson))
-
-      if (result.error) {
-        console.log('Erro ao buscar carros', result.message)
-        return
-      }
-
-      if (result.length === 0) {
-        setCars('Nenhum carro encontrado')
-        return
-      }
+      .then(responseJson => {
+        if(responseJson.length !== 0){
+          setCars(responseJson)
+        } 
+      })
     }
+    
     getCars()
 
   },[])
