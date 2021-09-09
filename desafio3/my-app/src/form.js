@@ -1,7 +1,8 @@
+
+
 const url = 'http://localhost:3333/cars'
 
-function Form ({setCars}) {
-
+function Form ({setCars, setToast}) {
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -21,16 +22,19 @@ function Form ({setCars}) {
       },
       body: JSON.stringify(car)
     }).then(response => response.json())
-    .then(responseJson => console.log(responseJson))
+    .then(responseJson => setToast({content: responseJson.message, show: true})) 
+    
+    setTimeout(() => {
+      setToast({content: '', show: false})
+    }, 3000)
 
-
+    
     setCars((prevData) => {
       return [...prevData, car]
     })
 
     event.target.reset()
-   
-
+  
   }
 
   return (
@@ -57,7 +61,7 @@ function Form ({setCars}) {
       </div>
       <div className="field-wrapper">
         <label htmlFor="color">Cor</label>
-        <input type="text" name="color"/>
+        <input type="color" name="color"/>
       </div>
 
       <button type="submit">Cadastrar Carro</button>

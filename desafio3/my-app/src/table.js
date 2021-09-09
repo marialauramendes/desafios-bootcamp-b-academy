@@ -1,7 +1,7 @@
 import { url } from "./form"
 
 
-function Table ({car, cars, setCars}) {
+function Table ({ cars, setCars, setToast}) {
 
   function handleDelete (event) {
     const plate = event.target.id
@@ -13,9 +13,14 @@ function Table ({car, cars, setCars}) {
       },
       body: JSON.stringify({plate})
     }).then(response => response.json())
-    .then(responseJson => console.log(responseJson))
+    .then(responseJson => setToast({content: responseJson.message, show: true}))
 
+    setTimeout(() => {
+      setToast({content: '', show: false})
+    }, 3000)
+    
     setCars((prevState) => prevState.filter((car) => car.plate !== plate));
+    
   }
 
   return (
