@@ -1,0 +1,92 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+}
+
+.container {
+  display: grid;
+  width: 100%;
+  min-height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 80px 80px 1fr 60px;
+  grid-gap: 10px;
+  grid-template-areas:
+    "header header header"
+    "nav nav nav"
+    "aside  main main"
+    "footer footer footer";
+  padding: 10px;
+}
+
+header {
+  grid-area: header;
+}
+nav {
+  grid-area: nav;
+}
+aside {
+  grid-area: aside;
+}
+main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+}
+
+header,
+nav,
+footer,
+aside,
+main {
+  background-color: #f3f5f9;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 26px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+nav,
+footer {
+  font-size: 18px;
+  text-align: center;
+}
+nav a {
+  color: inherit;
+}
+
+.primary {
+  background-color: cornflowerblue;
+  color: #fff;
+  border: 1px solid cornflowerblue;
+  width: 120px;
+  padding: 10px;
+}
+.secondary {
+  outline: 1px solid cornflowerblue;
+  background-color: #fff;
+  border: none;
+  width: 120px;
+  padding: 10px;
+}
+
+button:first-of-type {
+  margin-right: 20px;
+}
+.buttons-wrapper {
+  display: flex;
+  justify-content: center;
+}
