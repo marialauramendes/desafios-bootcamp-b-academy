@@ -9,7 +9,28 @@ import {  H2 } from './headings'
 import { Content1 } from './content1'
 import { Content2 } from './content2'
 import { Content3 } from './content3'
+import { createGlobalStyle } from 'styled-components'
 
+const GlobalStyle = createGlobalStyle`
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  body{
+    background-color: #202B24;
+    
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+    padding-top:40px;
+    padding-left:40px;
+    padding-right:40px;
+
+  }
+`
 const articles = [
   {
     id: 1,
@@ -35,8 +56,9 @@ function App () {
 
   return (
     <>
+    <GlobalStyle />
    <Container>
-      <Header />
+      <Header/>
       <Menu />
       <Sidebar articles={articles} setTitle={setTitle} setContent={setContent}></Sidebar>
       <Content>

@@ -1,38 +1,34 @@
+import styled from 'styled-components'
 
-function H1 ({children}){
-  return (
-    <h1>{children}</h1>
-  )
-}
+const H1 = styled.h1`
+  font-family: Georgia, serif;
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: capitalize;
+  color: #202B24;
+`
 
-function H2 ({children}){
-  return (
-    <h2>{children}</h2>
-  )
-}
+const H2 = styled.h2`
+  font-family: Georgia, serif;
+  font-size: 24px;
+  line-height: 27px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: capitalize;
+  color: #000;
+  margin-bottom:30px;
+`
 
-function H3 ({children}){
-  return (
-    <h3>{children}</h3>
-  )
-}
-
-function H4 ({children}){
-  return (
-    <h4>{children}</h4>
-  )
-}
-
-function H5 ({children}){
-  return (
-    <h5>{children}</h5>
-  )
-}
-
-function H6 ({children}){
-  return (
-    <h6>{children}</h6>
-  )
-}
-
-export { H1, H2, H3, H4, H5, H6 }
+const H3 = styled.h3`
+  font-family: Georgia, serif;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: capitalize;
+  color: #000;
+  margin-bottom:15px;
+`
+export { H1, H2, H3}
