@@ -1,5 +1,4 @@
-
-
+import styled from "styled-components";
 const url = 'http://localhost:3333/cars'
 
 function Form ({setCars, setToast}) {
@@ -46,35 +45,106 @@ function Form ({setCars, setToast}) {
 
   return (
     <>
-    <form onSubmit={handleSubmit} >
-      <div className="field-wrapper">
-        <label htmlFor="image">Imagem</label>
-        <input type="url" name="image"  autoFocus/>
-      </div>
+    <FormContainer onSubmit={handleSubmit} >
+      <FieldWrapper>
+        <Label htmlFor="image">Imagem</Label>
+        <Input type="url" name="image"  autoFocus/>
+      </FieldWrapper>
 
-      <div className="field-wrapper">
-        <label htmlFor="brand-model">Marca e Modelo</label>
-        <input type="text" name="brand-model"/>
-      </div>
+      <FieldWrapper>
+        <Label htmlFor="brand-model">Marca e Modelo</Label>
+        <Input type="text" name="brand-model"/>
+      </FieldWrapper>
 
-      <div className="field-wrapper">
-        <label htmlFor="year">Ano</label>
-        <input type="number" name="year"/>
-      </div>
+      <FieldWrapper>
+        <Label htmlFor="year">Ano</Label>
+        <Input type="number" name="year"/>
+      </FieldWrapper>
 
-      <div className="field-wrapper">
-        <label htmlFor="plate">Placa</label>
-        <input type="text" name="plate"/>
-      </div>
-      <div className="field-wrapper">
-        <label htmlFor="color">Cor</label>
-        <input type="color" name="color"/>
-      </div>
+      <FieldWrapper>
+        <Label htmlFor="plate">Placa</Label>
+        <Input type="text" name="plate"/>
+      </FieldWrapper>
 
-      <button type="submit">Cadastrar Carro</button>
-    </form>
+      <FieldWrapper>
+        <Label htmlFor="color">Cor</Label>
+        <Input type="color" name="color"/>
+      </FieldWrapper>
+
+      <Button type="submit">Cadastrar Carro</Button>
+    </FormContainer>
     </>
   )
 }
 
+const FormContainer = styled.form`
+  width:30%;
+  margin-right:50px;
+`
+
+const FieldWrapper = styled.div`
+  margin-bottom:15px;
+`
+const Label = styled.label`
+  display:block;
+  margin-bottom:10px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #F1F4F9;
+`
+
+
+const Input = styled.input`
+  height:40px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+  :not([type="color"]){
+    width:100%;
+    background-color: #2B2C42;
+    border: none;
+    border-radius: 10px;
+    padding:10px;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #F1F4F9;
+  }
+
+  &[type="color"]{
+    width:40px;
+    background-color:transparent;
+    border:none;
+  }
+  &:focus, &:focus-visible{
+    outline:none;
+    border: 1px solid #5E47F9;
+  }
+
+
+`
+
+
+
+const Button = styled.button`
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  max-width: 200px;
+  width:100%;
+  height: 50px;
+  background: #5E47F9;
+  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin-left: auto;
+  border:none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  text-transform: capitalize;
+  color: #FFFFFF;
+
+
+`
 export { url, Form }
