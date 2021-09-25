@@ -4,3 +4,4 @@
 - [Desafio 05 - Refatorado] https://github.com/marialauramendes/markee-app/pull/3
 - [Desafio 06] https://github.com/marialauramendes/markee-app/pull/4
 - [Desafio 06 - Refatorado] https://github.com/marialauramendes/markee-app/pull/5
+- [Desafio 07] https://github.com/marialauramendes/markee-app/pull/6
